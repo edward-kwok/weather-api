@@ -1,8 +1,9 @@
 language: go
-
 go:
-- tip # The latest version of Go.
-
+- tip
 script:
 - "./build.sh"
-
+deploy:
+  provider: heroku
+  api_key:
+    secure: nSHGFWQClS+BP4wr7joM66T4FCxrWQjIiZXUSL2UTUL50Duibr1Q16iUo4lWo8rTuVECM/8vbYHIUG9dnjTaas3bF2Xwo/rumAAjVXmhYRFTYv+HWPm0yKwUJzkTP6vctH3yWHG7wLXXrdyQ5ZezCGoPXUpYiaFb/e2M/kJIlAPjq7UmKOYifYVyIWh7d+mIfaVbfub1RUk3MA5Kzq/Mgm4sEtOeVkBrz/7v/Tm4gFZ+BiPojwU/pgR6gny5r9Ds13+bHLA+u+MnKzjDliuJz4kJ8zrwl/i+lxTvrhPawcCm/rY9wnLSxyAGFZO5YmLKLvLRKmHJZv2RJNQ+krAFp5hoZSfw0PJ8VWYeK8c37PcPkcfrgm1+ocEaT/43rzS9gJ7EEWZcA8OCUxQ3AjiJ/G1GGFa89CUhzZABrNAMBbTqZmp+llXJTv71EOAlyc7jGXvP4GS2kS1Wf5+Svf4NIdKCKvQO2LfHwZ+U/PrBo+nrp5j35sF9E/GTcMr7wzwCZWhbWnnzpnQQqWG1xeK37XYGMvex6Si6BrX/CQXzOx0e/ow15FzlpHFC//xFO9ohVc9UuKhnCE1hRqrE7V5o+bIqLhBib7pL3lnZe0l8aGPURIPyZ2GqEl+kQFYsBnpXeNPQRnQ6/ihc0gloxms5hlUFRCSYMhnewbdwVlQThsA=
