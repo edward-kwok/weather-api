@@ -26,9 +26,10 @@ func Extract(s string) string {
 		n := 0
 		for scanner.Scan() {
 			if n > 15 && n < 41 {
+				fmt.Println(scanner.Text())
 				var data []string
 				var re = regexp.MustCompile(`(?m)(\w+.*[^C\s])\s+(\d+.\d) C\s+(\d+.\d)`)
-				data = append(data, t.Format("20060102"))
+				data = append(data, s)
 				for i, match := range re.FindStringSubmatch(scanner.Text()) {
 					if i > 0 {
 						data = append(data, match)
@@ -37,7 +38,7 @@ func Extract(s string) string {
 				}
 				if len(data) > 1 {
 					x = x + fmt.Sprintf("%s,%s,%s,%s\n", data[0], data[1], data[2], data[3])
-					//checkError("Cannot write to file", err)
+					//checkError("Canot write to file", err)
 				}
 
 				//writer.Flush()
@@ -47,9 +48,10 @@ func Extract(s string) string {
 
 	})
 	t = t.Add(time.Hour * -24)
-	link := fmt.Sprintf(`https://www.hko.gov.hk/wxinfo/dailywx/yeswx/ryese%s.htm`, t.Format("20060102"))
+	link := fmt.Sprintf(`https://www.hko.gov.hk/wxinfo/dailywx/yeswx/ryese%s.htm`, s)
 	fmt.Println(link)
 	c.Visit(link)
+	c.Wait()
 	return x
 
 }
