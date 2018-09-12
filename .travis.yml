@@ -14,8 +14,8 @@ go:
 script:
   - env GO111MODULE=on go build -o app weather/weather.go
 after_success:
- - docker login -u="$HEROKU_USERNAME" -p="$HEROKU_PASSWORD" registry.heroku.com;
- - docker build --no-cache -t hkweather/app;
+ - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com;
+ - docker build --no-cache -t hkweather/app .;
  - docker tag hkweather/app:latest registry.heroku.com/blooming-bayou-30755/web;
  - docker push hkweather/app:latest;
 
