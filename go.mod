@@ -16,4 +16,5 @@ require (
 	golang.org/x/net v0.0.0-20180911220305-26e67e76b6c3 // indirect
 	golang.org/x/text v0.3.0 // indirect
 	google.golang.org/appengine v1.1.0 // indirect
+        github.com/edward-kwok/weather-api/internal
 )
