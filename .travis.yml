@@ -1,4 +1,4 @@
-language: go
+anguage: go
 sudo: required
 dist: trusty
 services:
@@ -12,16 +12,17 @@ after_success:
 - docker build --no-cache -t hkweather/app .;
 - docker tag hkweather/app:latest registry.heroku.com/blooming-bayou-30755/web;
 - docker push registry.heroku.com/blooming-bayou-30755/web;
-- curl -n -X PATCH https://api.heroku.com/apps/blooming-bayou-30755/formation \
+- >-
+  curl -n -X PATCH https://api.heroku.com/apps/blooming-bayou-30755/formation
   -d '{
   "updates": [
     {
       "type": "web",
       "docker_image": "$(docker images hkweather/app --format={{.ID}})"
     }
-  ]
-}' \
-  -H "Content-Type: application/json" \
+    ]
+  }' 
+  -H "Content-Type: application/json" 
   -H "Accept: application/vnd.heroku+json; version=3.docker-releases"
 branches:
   only:
