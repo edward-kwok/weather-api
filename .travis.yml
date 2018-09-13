@@ -11,7 +11,7 @@ after_success:
 - echo "$HEROKU_PASSWORD" | docker login --username="_" --password-stdin registry.heroku.com;
 - docker build --no-cache -t hkweather/app .;
 - docker tag hkweather/app:latest registry.heroku.com/blooming-bayou-30755/web;
-- docker push hkweather/app:latest;
+- docker push registry.heroku.com/blooming-bayou-30755/web;
 branches:
   only:
   - master
